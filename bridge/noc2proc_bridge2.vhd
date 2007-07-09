@@ -43,7 +43,7 @@ use IEEE.STD_LOGIC_textio.all;
 
 
 use work.pkg_nocem.all;
-use work.pkg_snocem.all;
+--use work.pkg_snocem.all;
 
 library std;
 use std.textio.all;
@@ -301,12 +301,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" tasklist started: "));								
-							write(L, string'(" with OS Data: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" tasklist started: "));								
+--							write(L, string'(" with OS Data: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 						
 --							tl_debug(4) <= '1';
 --
@@ -320,12 +320,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" tasklist ended: "));								
-							write(L, string'(" with OS Data: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" tasklist ended: "));								
+--							write(L, string'(" with OS Data: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 		
 --							tl_debug(3) <= '1';
 --		
@@ -338,12 +338,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" task allocated SUCCESS: "));								
-							write(L, string'(" with OS Data: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" task allocated SUCCESS: "));								
+--							write(L, string'(" with OS Data: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 
 --							tl_debug(2) <= '1';
 --
@@ -357,12 +357,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" task alloacted FAILURE: "));								
-							write(L, string'(" with OS Data: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" task alloacted FAILURE: "));								
+--							write(L, string'(" with OS Data: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 
 --							tl_debug(1) <= '1';
 --
@@ -376,15 +376,15 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" CE Deallocated: "));								
-							write(L, string'(" with OS Data: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);
-
-							write(L, string'(" ")); 
-							writeline(OUTPUT, L);							
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" CE Deallocated: "));								
+--							write(L, string'(" with OS Data: "));	
+--							hwrite(L, Bus2IP_data);							
+----							writeline(OUTPUT, L);
+--
+--							write(L, string'(" ")); 
+--							writeline(OUTPUT, L);							
 
 --							tl_debug(0) <= '1';
 --
@@ -399,12 +399,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" BAD SYSCALL PACKET: "));								
-							write(L, string'(" with OS Data: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" BAD SYSCALL PACKET: "));								
+--							write(L, string'(" with OS Data: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 
 --							--tl_debug(0) <= '1';
 --
@@ -420,12 +420,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" STATISTICS COLLECTED: "));								
-							write(L, string'(" with runtime: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" STATISTICS COLLECTED: "));								
+--							write(L, string'(" with runtime: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 
 --							--tl_debug(0) <= '1';
 --
@@ -440,12 +440,12 @@ begin
 					Bus2IP_CS /= 0 and 
 					Bus2IP_CE /= 0	then
 
-							write(L, string'("OS checkpoint: ")); 
-							write(L,time'image(NOW));						
-							write(L, string'(" STATISTICS COLLECTED: "));								
-							write(L, string'(" with packets sent: "));	
-							hwrite(L, Bus2IP_data);							
-							writeline(OUTPUT, L);				
+--							write(L, string'("OS checkpoint: ")); 
+--							write(L,time'image(NOW));						
+--							write(L, string'(" STATISTICS COLLECTED: "));								
+--							write(L, string'(" with packets sent: "));	
+--							hwrite(L, Bus2IP_data);							
+--							writeline(OUTPUT, L);				
 
 --							--tl_debug(0) <= '1';
 --

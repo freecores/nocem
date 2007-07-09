@@ -1,40 +1,4 @@
 
------------------------------------------------------------------------------
--- NoCem -- Network on Chip Emulation Tool for System on Chip Research 
--- and Implementations
--- 
--- Copyright (C) 2006  Graham Schelle, Dirk Grunwald
--- 
--- This program is free software; you can redistribute it and/or
--- modify it under the terms of the GNU General Public License
--- as published by the Free Software Foundation; either version 2
--- of the License, or (at your option) any later version.
--- 
--- This program is distributed in the hope that it will be useful,
--- but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
--- GNU General Public License for more details.
--- 
--- You should have received a copy of the GNU General Public License
--- along with this program; if not, write to the Free Software
--- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  
--- 02110-1301, USA.
--- 
--- The authors can be contacted by email: <schelleg,grunwald>@cs.colorado.edu 
--- 
--- or by mail: Campus Box 430, Department of Computer Science,
--- University of Colorado at Boulder, Boulder, Colorado 80309
--------------------------------------------------------------------------------- 
-
-
--- 
--- Filename: vc_node_ch_arbiter.vhd
--- 
--- Description: vc_node channel arbitration logic
--- 
-
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
@@ -308,7 +272,7 @@ end process;
 
 
 
-
+-- THIS IS WHERE THE DECISION IS MADE...
 
 arb_gen : process (channel_cntrl_in_array_i,dest_local_port, dest_local_vc_ureg, ap_channel_cntrl_in, n_channel_cntrl_in, s_channel_cntrl_in, e_channel_cntrl_in, w_channel_cntrl_in)
 begin
@@ -352,7 +316,9 @@ l3: for I in 4 downto 0 loop
          channel_cntrl_out_array_ureg(I)(NOCEM_CHFIFO_VC_WR_ADDR_HIX downto NOCEM_CHFIFO_VC_WR_ADDR_LIX) 
                      <= ap_channel_cntrl_in(NOCEM_CHFIFO_VC_VCDEST_HIX downto NOCEM_CHFIFO_VC_VCDEST_LIX);
 
-		elsif dest_local_port(NOCEM_NORTH_IX) = arb_decision_enum(I) then
+		elsif dest_local_port(NOCEM_NORTH_IX) = arb_decision_enum(I) and 
+			((TO_BITVECTOR(dest_local_vc_ureg(NOCEM_NORTH_IX)) and TO_BITVECTOR(channel_cntrl_in_array_i(I)(NOCEM_CHFIFO_VC_FULL_HIX downto NOCEM_CHFIFO_VC_FULL_LIX))) = zeroes_bv) then
+
 			arb_grant_output_ureg(I) <= ARB_NORTH;
 
 			-- do read enable for selected incoming data
@@ -372,7 +338,9 @@ l3: for I in 4 downto 0 loop
                      <= n_channel_cntrl_in(NOCEM_CHFIFO_VC_VCDEST_HIX downto NOCEM_CHFIFO_VC_VCDEST_LIX);
 
 
-		elsif dest_local_port(NOCEM_SOUTH_IX) = arb_decision_enum(I) then
+		elsif dest_local_port(NOCEM_SOUTH_IX) = arb_decision_enum(I) and 
+			((TO_BITVECTOR(dest_local_vc_ureg(NOCEM_SOUTH_IX)) and TO_BITVECTOR(channel_cntrl_in_array_i(I)(NOCEM_CHFIFO_VC_FULL_HIX downto NOCEM_CHFIFO_VC_FULL_LIX))) = zeroes_bv) then
+
 			arb_grant_output_ureg(I) <= ARB_SOUTH;
 
 			-- do read enable for selected incoming data
@@ -392,7 +360,9 @@ l3: for I in 4 downto 0 loop
                      <= s_channel_cntrl_in(NOCEM_CHFIFO_VC_VCDEST_HIX downto NOCEM_CHFIFO_VC_VCDEST_LIX);
 
 
-		elsif dest_local_port(NOCEM_EAST_IX) = arb_decision_enum(I) then
+		elsif dest_local_port(NOCEM_EAST_IX) = arb_decision_enum(I) and 
+			((TO_BITVECTOR(dest_local_vc_ureg(NOCEM_EAST_IX)) and TO_BITVECTOR(channel_cntrl_in_array_i(I)(NOCEM_CHFIFO_VC_FULL_HIX downto NOCEM_CHFIFO_VC_FULL_LIX))) = zeroes_bv) then
+
 			arb_grant_output_ureg(I) <= ARB_EAST;
 
 			-- do read enable for selected incoming data
@@ -412,7 +382,9 @@ l3: for I in 4 downto 0 loop
                      <= e_channel_cntrl_in(NOCEM_CHFIFO_VC_VCDEST_HIX downto NOCEM_CHFIFO_VC_VCDEST_LIX);
 
 
-		elsif dest_local_port(NOCEM_WEST_IX) = arb_decision_enum(I) then
+		elsif dest_local_port(NOCEM_WEST_IX) = arb_decision_enum(I) and 
+			((TO_BITVECTOR(dest_local_vc_ureg(NOCEM_WEST_IX)) and TO_BITVECTOR(channel_cntrl_in_array_i(I)(NOCEM_CHFIFO_VC_FULL_HIX downto NOCEM_CHFIFO_VC_FULL_LIX))) = zeroes_bv) then
+
 			arb_grant_output_ureg(I) <= ARB_WEST;	 			
 
 			-- do read enable for selected incoming data

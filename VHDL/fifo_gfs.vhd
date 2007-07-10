@@ -255,7 +255,7 @@ begin
 
 
 	-- handling memcore signalling
-	memcore_sig_gen_uclkd : process (D_ADD)
+	memcore_sig_gen_uclkd : process (D_ADD, MIN_ADDR, MAX_ADDR)
 	begin
 		
 			if D_ADD = MIN_ADDR then 										

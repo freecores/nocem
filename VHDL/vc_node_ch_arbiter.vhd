@@ -122,7 +122,7 @@ begin
 end process;
 
 
-outputs_post_regd : process (n_channel_cntrl_in, s_channel_cntrl_in, e_channel_cntrl_in, w_channel_cntrl_in, ap_channel_cntrl_in, n_channel_cntrl_out_reg, s_channel_cntrl_out_reg, e_channel_cntrl_out_reg, w_channel_cntrl_out_reg, ap_channel_cntrl_out_reg, arb_grant_output_reg, dest_local_vc_reg, channel_cntrl_in_array_i)
+outputs_post_regd : process (n_channel_cntrl_in, s_channel_cntrl_in, e_channel_cntrl_in, w_channel_cntrl_in, ap_channel_cntrl_in, n_channel_cntrl_out_reg, s_channel_cntrl_out_reg, e_channel_cntrl_out_reg, w_channel_cntrl_out_reg, ap_channel_cntrl_out_reg, arb_grant_output_reg, dest_local_vc_reg, channel_cntrl_in_array_i, zeroes_bv)
 begin
 
 
@@ -274,7 +274,7 @@ end process;
 
 -- THIS IS WHERE THE DECISION IS MADE...
 
-arb_gen : process (channel_cntrl_in_array_i,dest_local_port, dest_local_vc_ureg, ap_channel_cntrl_in, n_channel_cntrl_in, s_channel_cntrl_in, e_channel_cntrl_in, w_channel_cntrl_in)
+arb_gen : process (channel_cntrl_in_array_i,dest_local_port, dest_local_vc_ureg, ap_channel_cntrl_in, n_channel_cntrl_in, s_channel_cntrl_in, e_channel_cntrl_in, w_channel_cntrl_in, arb_decision_enum, zeroes_bv)
 begin
 
 

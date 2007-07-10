@@ -114,7 +114,7 @@ constant NOCEM_TOPOLOGY_DTORUS 		: integer := 2;
 ------------------------------------------------------------------------------------------
 
 
-constant NOCEM_TYPE        				: integer := NOCEM_VC_TYPE;
+constant NOCEM_TYPE        				: integer := NOCEM_CHFIFO_VC_TYPE;
 constant NOCEM_CHFIFO_TYPE                              : integer := NOCEM_CHFIFO_VC_TYPE;
 constant NOCEM_TOPOLOGY_TYPE				: integer := NOCEM_TOPOLOGY_MESH;
 constant NOCEM_FIFO_IMPLEMENTATION			: integer := NOCEM_FIFO_LUT_TYPE;
